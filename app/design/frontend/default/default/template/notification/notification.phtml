@@ -1,0 +1,43 @@
+<?php
+    /**
+    * @category    Biztech
+    * @package     Biztech_Notification
+    */
+?>
+<?php if ($this->showNotifications()): ?>
+    <div class="bg-overlay">
+        <?php
+            $position = Mage::getStoreConfig('notification/notification_general/fixed');
+            if($position==1){   ?>
+            <div id="notification-bar" class="top"><div id="notification"><span class="notification-content"><?php echo $this->getNotificationText(); ?></span><?php if($this->allowClearControl()) : ?>
+                    <span class="close"><img src="<?php echo $this->getSkinUrl('notification/images/close-note.png') ?>" /></span><?php endif; ?></div></div>
+            <?php } 
+
+            elseif($position==0) { ?>
+            <div id="notification-bar" class="bottom"><div id="notification"><span class="notification-content"><?php echo $this->getNotificationText(); ?></span><?php if($this->allowClearControl()) : ?><span class="close"><img src="<?php echo $this->getSkinUrl('notification/images/close-note.png') ?>" /></span><?php endif; ?></div></div>
+            <?php }
+
+            else{ ?>
+            <div class="center-align">
+                <div class="close"></div>
+                <div class="pop-title">
+                    <?php echo Mage::getStoreConfig('notification/notification_general/popup_title'); ?>
+                </div>
+                <div class="popup-container"><?php echo $this->getNotificationText(); ?></div>
+            </div>
+            <?php } ?>
+
+        <?php if($this->allowClearControl()) : ?>
+            <script type="text/javascript">
+                $$('.bg-overlay .close').first().observe('click',function(event) { 
+                        var callback = <?php echo ($this->isFixed() ? "function() { \$\$('body').first().setStyle({marginTop:0}); }" : "function(){}") ?>;
+                        event.element().up('.bg-overlay').fade({duration:0.5, afterFinish:callback});  
+                        Mage.Cookies.set("<?php echo $this->getNotificationClearCookieName() ?>","1",new Date((new Date()).getTime() + 365*24*60*60*1000),"/"); 
+
+                });
+                $$('.center-align')[0].style.height = $$('.pop-title')[0].clientHeight+$$('.popup-container')[0].clientHeight +'px';
+            </script>
+        </div>
+        <?php endif; ?>
+    <?php endif; ?>
+    

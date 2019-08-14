@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category   Biztech
+* @package    Biztech_Notification
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Biztech_Notification>
+            <version>0.1.0</version>
+        </Biztech_Notification>
+    </modules>
+    <frontend>
+        <routers>
+            <notification>
+                <use>standard</use>
+                <args>
+                    <module>Biztech_Notification</module>
+                    <frontName>notification</frontName>
+                </args>
+            </notification>
+        </routers>
+        <layout>
+            <updates>
+                <notification>
+                    <file>notification.xml</file>
+                </notification>
+            </updates>
+        </layout>
+    </frontend>
+
+
+    <global>
+        <blocks>
+            <notification>
+                <class>Biztech_Notification_Block</class>
+            </notification>
+        </blocks>
+        <helpers>
+            <notification>
+                <class>Biztech_Notification_Helper</class>
+            </notification>
+        </helpers>  
+        <models>
+            <notification>
+                <class>Biztech_Notification_Model</class>
+                <resourceModel>notification_system</resourceModel>
+            </notification>
+            <notification_system>
+                <class>Biztech_Notification_Model_System</class>
+                <entities>
+                    <notification>
+                        <table>notification</table>
+                    </notification>
+                </entities>
+            </notification_system>
+        </models>
+    </global>
+    <default>
+        <notification>                
+            <display>0</display>
+            <clearcontrol>0</clearcontrol>
+            <default_style>1</default_style>
+            <fixed>1</fixed>
+            <fixed_margin>28px</fixed_margin>
+        </notification>
+    </default>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Biztech_Notification>
+                            <title>Notification ToolBar</title>
+                            <sort_order>10</sort_order>
+                        </Biztech_Notification>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <notification>
+                                            <title>Notification ToolBar</title>
+                                        </notification>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <trackorder>
+                    <file>notification.xml</file>
+                </trackorder>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

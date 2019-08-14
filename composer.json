@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/notification_module",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "This extension allows you to create and manage a notification bar for displaying important announcements and notices to your customers and site visitors.",
+    "authors": [
+    {
+        "name": "Biztech",
+        "email": "sales@biztechconsultancy.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

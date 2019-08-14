@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="notification/styles" name="notification_bar_style" as="notification_bar_style" template="notification/styles.phtml" />
+        </reference>
+        <reference name="after_body_start">
+            <block type="notification/notification" name="notification" template="notification/notification.phtml" />
+        </reference>
+    </default>
+</layout> 
