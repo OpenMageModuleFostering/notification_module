@@ -1,6 +1,4 @@
-<?php
-   
-    class Biztech_Notification_Block_Notificationdesign extends Mage_Core_Block_Template
+<?php  class Biztech_Notification_Block_Notificationdesign extends Mage_Core_Block_Template
     {
     
         public function useDefaultStyles()

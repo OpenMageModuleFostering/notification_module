@@ -3,27 +3,21 @@
     {
         public function showNotifications()
         {
-            
             if($this->getPosition() == 'popup')
             { 
                 return Mage::getStoreConfig('notification/notification_general/enabled') && 
                 $this->NotificationContent() &&
-                (!$this->isNotificationCleared() || $this->closeNotification()) &&
+                !$this->isNotificationCleared() &&
                 $this->afterStartDate() &&
                 $this->beforeEndDate();
             }
-            
-            if($this->getPosition() == 'bottom' || $this->getPosition() == 'top')
-            {
+            else{
                 return Mage::getStoreConfig('notification/notification_general/enabled') && 
                 $this->NotificationContent() &&
                 (!$this->isNotificationCleared() || !$this->closeNotification()) &&
                 $this->afterStartDate() &&
                 $this->beforeEndDate();
             }
-            
-            
-            
         }
 
         public function getNotificationText()
@@ -41,18 +35,18 @@
             return $content;
         }
 
-     
+
         protected function NotificationContent() {
             $content = $this->getNotificationText();
             return !empty($content);
         }
 
-     
+
         public function closeNotification() {
             return Mage::getStoreConfig('notification/notification_general/close_notification');
         }
 
-    
+
         public function getNotificationClearCookieName() {
             return 'clear_notification'.preg_replace("/\W/", '', null);
         }
@@ -66,7 +60,7 @@
         public function isNotificationCleared() {
             return Mage::getSingleton('core/cookie')->get($this->getNotificationClearCookieName());
         }
-        
+
         public function getPosition() {
             return Mage::getStoreConfig('notification/notification_general/position');
         }

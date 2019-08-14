@@ -31,18 +31,25 @@
                 .bg-overlay .close{  background:url(<?php echo $this->getSkinUrl('/notification/images/closebox.png') ?>) 0 0 no-repeat; position: absolute; width: 30px; height: 30px; top:-18px; right:-18px; cursor:pointer;} 
             <?php
         }
-    }
-    ?>
+          if($this->getPosition() == 'leftcorner') { ?>
+                .bg-overlay{  height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 0;}
+                .bg-overlay .leftcorner-align{background:url(<?php echo $this->getSkinUrl('/notification/images/bubble-right.png') ?>) 0 0 no-repeat;  left:0;   position: absolute;  bottom: 0; text-align: center; width: 300px; min-height: 275px; padding-top: 34px; }
+                .bg-overlay .leftcorner-align .pop-title{ font-size: 14px; font-weight: bold;  padding:0 22%; word-wrap: break-word;}
+                .bg-overlay .leftcorner-align .popup-container { padding: 0 18%;    width: 64%;  word-wrap: break-word; max-height: 187px;  overflow: hidden;}
+                .bg-overlay .close{ background: #e1e2e3;  border: 1px solid #c4c5c7; cursor: pointer;  display: inline-block; padding: 0 6px;  text-decoration: none; margin-top: 5px;} 
+         <?php 
+     }
+     if($this->getPosition() == 'rightcorner') { ?>
+                .bg-overlay{  height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 0;}
+                .bg-overlay .rightcorner-align{background:url(<?php echo $this->getSkinUrl('/notification/images/bubble-left.png') ?>) 0 0 no-repeat;  right:0;   position: absolute;  bottom: 0; text-align: center; width: 300px; min-height: 275px;  padding-top: 34px; }
+                .bg-overlay .rightcorner-align .pop-title{ font-size: 14px; font-weight: bold; padding: 0 22%; word-wrap: break-word;}
+                .bg-overlay .rightcorner-align .popup-container { padding: 0 18%;    width: 64%;  word-wrap: break-word; max-height: 187px;  overflow: hidden;}
+                .bg-overlay .close{ background: #e1e2e3;  border: 1px solid #c4c5c7; cursor: pointer;  display: inline-block; padding: 0 6px;  text-decoration: none; margin-top: 5px;}  
+         <?php }
+
+    }     ?>
     <?php if ($this->useDefaultStyles() || $this->getPosition()) { ?>
         </style>
     <?php } ?>
 <?php } ?>
 
-<script type="text/javascript">
-    function popupwindow(w, h) {
-        var left = (screen.width / 2) - (w / 2);
-        var top = (screen.height / 2) - (h / 2);
-        return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-    }
-    popupwindow();
-</script>

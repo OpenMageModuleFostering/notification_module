@@ -41,6 +41,8 @@
                 array('value' => 'bottom', 'label' => 'Bottom'),
                 array('value' => 'top', 'label' => 'Top'),
                 array('value' => 'popup', 'label' => 'Pop Up'),
+                array('value' => 'leftcorner', 'label' => 'Left Corner'),
+                array('value' => 'rightcorner', 'label' => 'Right Corner'),
             );
         }
     }
