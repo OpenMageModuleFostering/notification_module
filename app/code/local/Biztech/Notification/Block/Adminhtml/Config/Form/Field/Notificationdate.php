@@ -1,17 +1,6 @@
 <?php
-    /**
-    * Datepicker adminhtml configuration control 'model' based on the 
-    * Mage_Adminhtml_Block_Report_Config_Form_Field_YtdStart control.
-    * 
-    * Use this control to add a Magento configuration Year Month Day selector, 
-    * configured in a system.xml as follows:
-    * 
-    * <frontend_type>select</frontend_type>
-    * <frontend_model>notification/adminhtml_config_form_field_datepicker</frontend_model>
-    *
-    */
-
-    class Biztech_Notification_Block_Adminhtml_Config_Form_Field_Datepicker extends Mage_Adminhtml_Block_System_Config_Form_Field
+   
+    class Biztech_Notification_Block_Adminhtml_Config_Form_Field_Notificationdate extends Mage_Adminhtml_Block_System_Config_Form_Field
     {
 
         protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element)
@@ -22,10 +11,9 @@
             }
 
             $_months = array(null => "Month");
+            $monthNames = array('January','February','March','April','May','June','July','August','September','October','November','December');
             for ($i = 1; $i <= 12; $i++) {
-                $_months[$i] = Mage::app()->getLocale()
-                ->date(mktime(null,null,null,$i))
-                ->get(Zend_date::MONTH_NAME);
+                $_months[$i] = $monthNames[$i-1];
             }
 
             $_days = array(null => "Day");

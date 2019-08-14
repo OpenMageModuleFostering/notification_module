@@ -28,7 +28,7 @@
     * Used in creating options for Yes|No config value selection
     *
     */
-    class Biztech_Notification_Model_System_Positionnotification
+    class Biztech_Notification_Model_System_Notificationposition
     {
         /**
         * Options getter
@@ -38,9 +38,9 @@
         public function toOptionArray()
         {
             return array(
-                array('value' => 0, 'label' => 'Bottom'),
-                array('value' => 1, 'label' => 'Top'),
-                array('value' => 2, 'label' => 'Pop Up'),
+                array('value' => 'bottom', 'label' => 'Bottom'),
+                array('value' => 'top', 'label' => 'Top'),
+                array('value' => 'popup', 'label' => 'Pop Up'),
             );
         }
     }

@@ -10,7 +10,7 @@
 <config>
     <modules>
         <Biztech_Notification>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </Biztech_Notification>
     </modules>
     <frontend>
@@ -61,11 +61,11 @@
     </global>
     <default>
         <notification>                
-            <display>0</display>
-            <clearcontrol>0</clearcontrol>
+            <enabled>0</enabled>
+            <close_notification>0</close_notification>
             <default_style>1</default_style>
-            <fixed>1</fixed>
-            <fixed_margin>28px</fixed_margin>
+            <position>1</position>
+            <body_margin>30px</body_margin>
         </notification>
     </default>
     <adminhtml>
