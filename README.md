@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 This extension allows you to create and manage a notification bar for displaying important announcements and notices to your customers and site visitors.
